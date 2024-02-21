@@ -8,23 +8,24 @@ namespace Circustrein_V1
 {
     internal class Animal
     {
-        public AnimalSize Size { get; set; }
-        public Diet Diet { get; set; }
+        public AnimalSize size { get; set; }
+        public Diet diet { get; set; }
+
 
         public override string ToString()
         {
-            if (Size  == AnimalSize.Small &&  Diet == Diet.Herbivore)
+            if (size  == AnimalSize.Small &&  diet == Diet.Herbivore)
                 return "Small Herbivore";
-            if (Size == AnimalSize.Medium && Diet == Diet.Herbivore)
+            if (size == AnimalSize.Medium && diet == Diet.Herbivore)
                 return "Medium Herbivore";
-            if (Size == AnimalSize.Big && Diet == Diet.Herbivore)
-                return "Medium Herbivore";
-            if (Size == AnimalSize.Small && Diet == Diet.Carnivore)
+            if (size == AnimalSize.Large && diet== Diet.Herbivore)
+                return "Large Herbivore";
+            if (size == AnimalSize.Small && diet == Diet.Carnivore)
                 return "Small Carnivore";
-            if (Size == AnimalSize.Medium && Diet == Diet.Carnivore)
+            if (size == AnimalSize.Medium && diet == Diet.Carnivore)
                 return "Medium Carnivore";
-            if (Size == AnimalSize.Big && Diet == Diet.Carnivore)
-                return "Medium Carnivore";
+            if (size == AnimalSize.Large && diet == Diet.Carnivore)
+                return "Large Carnivore";
             else
                 return "";
         }

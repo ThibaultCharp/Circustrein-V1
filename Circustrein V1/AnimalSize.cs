@@ -10,6 +10,6 @@ namespace Circustrein_V1
     {
         Small = 1,
         Medium = 3,
-        Big = 5
+        Large = 5
     }
 }

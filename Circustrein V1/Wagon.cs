@@ -9,16 +9,18 @@ namespace Circustrein_V1
 
     internal class Wagon
     {
+        private int maxCapacity = 10;
         private List<Animal> animals;
-        Train train = new Train();
+        //Train train = new Train();
+        Animal anymal = new Animal();   
         public Wagon()
         {
             animals = new List<Animal>();
         }
-
+                    
         public bool AddAnimal(Animal animal)
         {
-            if (CanAddAnimal(animal))
+            if (CanAnimalFit(animal) && CanAnimalBehave(animal))
             {
                 animals.Add(animal);
                 return true;
@@ -26,20 +28,34 @@ namespace Circustrein_V1
             return false;
         }
 
-
-        public bool CanAddAnimal(Animal animal)
+        public bool CanAnimalFit(Animal animal)
         {
-            int totalSize = animals.Sum(a => (int)a.Size);
-            if (totalSize + (int)animal.Size <= 10)
+            int totalSize = animals.Sum(a => (int)a.size);
+            if (totalSize + (int)animal.size <= maxCapacity)
             {
-                if (animal.Diet == Diet.Carnivore && animals.Any(a => a.Size >= animal.Size))
-                {
-                    return false;
-                }
                 return true;
             }
             return false;
         }
+
+        public bool CanAnimalBehave(Animal animal)
+        {
+            for (int i = 0; i < animals.Count; i++)
+            {
+                if (animals[i].diet == Diet.Carnivore && (int)animals[i].size >= (int)animal.size)
+                {
+                    return false;
+                }
+
+                if (animal.diet == Diet.Carnivore && animals[i].size <= animal.size)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
 
         public List<Animal> GetAnimals()
         {

@@ -16,12 +16,12 @@ namespace Circustrein_V1
         Train train = new Train();
         Wagon wagon = new Wagon();
 
-        Animal s_H = new Animal { Size = AnimalSize.Small, Diet = Diet.Herbivore };
-        Animal m_H = new Animal { Size = AnimalSize.Medium, Diet = Diet.Herbivore};
-        Animal b_H = new Animal { Size = AnimalSize.Big, Diet = Diet.Herbivore };
-        Animal s_C = new Animal { Size = AnimalSize.Small, Diet = Diet.Carnivore };
-        Animal m_C = new Animal { Size = AnimalSize.Medium, Diet = Diet.Carnivore };
-        Animal b_C = new Animal { Size = AnimalSize.Big, Diet = Diet.Carnivore };
+        Animal s_H = new Animal { size = AnimalSize.Small, diet = Diet.Herbivore };
+        Animal m_H = new Animal { size = AnimalSize.Medium, diet = Diet.Herbivore};
+        Animal l_H = new Animal { size = AnimalSize.Large, diet = Diet.Herbivore };
+        Animal s_C = new Animal { size = AnimalSize.Small, diet = Diet.Carnivore };
+        Animal m_C = new Animal { size = AnimalSize.Medium, diet = Diet.Carnivore };
+        Animal l_C = new Animal { size = AnimalSize.Large, diet = Diet.Carnivore };
 
         public Form1()
         {
@@ -49,9 +49,33 @@ namespace Circustrein_V1
             UpdateList();
         }
 
+        private void buttonMH_Click(object sender, EventArgs e)
+        {
+            wagon.AddAnimal(m_H);
+            UpdateList();
+        }
+
+        private void buttonLH_Click(object sender, EventArgs e)
+        {
+            wagon.AddAnimal(l_H);
+            UpdateList();
+        }
+
         private void buttonSC_Click(object sender, EventArgs e)
         {
             wagon.AddAnimal(s_C);
+            UpdateList();
+        }
+
+        private void buttonMC_Click(object sender, EventArgs e)
+        {
+            wagon.AddAnimal(m_C);
+            UpdateList();
+        }
+
+        private void buttonLC_Click(object sender, EventArgs e)
+        {
+            wagon.AddAnimal(l_C);
             UpdateList();
         }
     }
