@@ -14,17 +14,17 @@ namespace Circustrein_V1
 
         public override string ToString()
         {
-            if (size  == AnimalSize.Small &&  diet == Diet.Herbivore)
+            if (size == AnimalSize.Small && diet == Diet.Herbivore)
                 return "Small Herbivore";
-            if (size == AnimalSize.Medium && diet == Diet.Herbivore)
+            else if (size == AnimalSize.Medium && diet == Diet.Herbivore)
                 return "Medium Herbivore";
-            if (size == AnimalSize.Large && diet== Diet.Herbivore)
+            else if (size == AnimalSize.Large && diet == Diet.Herbivore)
                 return "Large Herbivore";
-            if (size == AnimalSize.Small && diet == Diet.Carnivore)
+            else if (size == AnimalSize.Small && diet == Diet.Carnivore)
                 return "Small Carnivore";
-            if (size == AnimalSize.Medium && diet == Diet.Carnivore)
+            else if (size == AnimalSize.Medium && diet == Diet.Carnivore)
                 return "Medium Carnivore";
-            if (size == AnimalSize.Large && diet == Diet.Carnivore)
+            else if (size == AnimalSize.Large && diet == Diet.Carnivore)
                 return "Large Carnivore";
             else
                 return "";

@@ -36,47 +36,58 @@ namespace Circustrein_V1
         void UpdateList()
         {
             List<Animal> list = wagon.GetAnimals();
-            listBox1.Items.Clear();
+            listBoxAnimals.Items.Clear();
             foreach (Animal animal in list)
             {
-                listBox1.Items.Add(animal.ToString());
+                listBoxAnimals.Items.Add(animal);
             }
         }
 
         private void buttonSH_Click(object sender, EventArgs e)
         {
-            wagon.AddAnimal(s_H);
+            wagon.AddAnimalToList(s_H);
             UpdateList();
         }
 
         private void buttonMH_Click(object sender, EventArgs e)
         {
-            wagon.AddAnimal(m_H);
+            wagon.AddAnimalToList(m_H);
             UpdateList();
         }
 
         private void buttonLH_Click(object sender, EventArgs e)
         {
-            wagon.AddAnimal(l_H);
+            wagon.AddAnimalToList(l_H);
             UpdateList();
         }
 
         private void buttonSC_Click(object sender, EventArgs e)
         {
-            wagon.AddAnimal(s_C);
+            wagon.AddAnimalToList(s_C);
             UpdateList();
         }
 
         private void buttonMC_Click(object sender, EventArgs e)
         {
-            wagon.AddAnimal(m_C);
+            wagon.AddAnimalToList(m_C);
             UpdateList();
         }
 
         private void buttonLC_Click(object sender, EventArgs e)
         {
-            wagon.AddAnimal(l_C);
+            wagon.AddAnimalToList(l_C);
             UpdateList();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            wagon.SortAnimalsBigToSmall();
+            List<Animal> list = wagon.GetAnimals();
+            listBoxWagon.Items.Clear();
+            foreach (Animal animal in list)
+            {
+                listBoxWagon.Items.Add(animal.ToString());
+            }
         }
     }
 }
