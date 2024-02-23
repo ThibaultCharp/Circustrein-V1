@@ -22,7 +22,6 @@ namespace Circustrein_V1
         Animal s_C = new Animal { size = AnimalSize.Small, diet = Diet.Carnivore };
         Animal m_C = new Animal { size = AnimalSize.Medium, diet = Diet.Carnivore };
         Animal l_C = new Animal { size = AnimalSize.Large, diet = Diet.Carnivore };
-
         public Form1()
         {
             InitializeComponent();
@@ -82,11 +81,17 @@ namespace Circustrein_V1
         private void button1_Click(object sender, EventArgs e)
         {
             wagon.SortAnimalsBigToSmall();
-            List<Animal> list = wagon.GetAnimals();
-            listBoxWagon.Items.Clear();
-            foreach (Animal animal in list)
+            List<Animal> AnimalList = wagon.GetAnimals();
+            foreach (Animal animal in AnimalList)
             {
-                listBoxWagon.Items.Add(animal.ToString());
+                train.DistributeAnimals(animal);
+            }
+
+            List<Wagon> Wagonlist = train.GetWagons();
+            listBoxWagon.Items.Clear();
+            foreach (Wagon wagon in Wagonlist)
+            {
+                listBoxWagon.Items.Add(wagon);
             }
         }
     }

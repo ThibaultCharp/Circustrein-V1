@@ -9,6 +9,8 @@ namespace Circustrein_V1
 {
     internal class Train
     {
+        Wagon wagon = new Wagon();
+
         private List<Wagon> wagons;
         private List<Animal> animals;
 
@@ -18,6 +20,36 @@ namespace Circustrein_V1
             animals = new List<Animal>();
         }
 
+        public void DistributeAnimals(Animal animal)
+        {
+            AddFirstWagon();
+            IsWagonNessesery(animal);
+        }
+
+        private void AddFirstWagon()
+        {
+            if (wagons.Count == 0)
+            {
+                wagons.Add(new Wagon());
+            }
+        }
+
+        private bool IsWagonNessesery(Animal animal) 
+        { 
+            if(wagon.AddAnimal(animal) == true)
+            {
+                return false;
+            }
+
+            wagons.Add(new Wagon());
+            return true;
+        }
+
+        public void PutAnimalsInWagon(Wagon wagon)
+        {
+            
+        }
+        
         public void ClearLists()
         {
             animals = new List<Animal>();
@@ -28,7 +60,5 @@ namespace Circustrein_V1
         {
             return wagons;
         }
-
-
     }
 }

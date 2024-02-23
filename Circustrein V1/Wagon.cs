@@ -9,7 +9,6 @@ namespace Circustrein_V1
 
     internal class Wagon
     {
-        Train train = new Train();
         private int maxCapacity = 10;
         private List<Animal> animals;
         public Wagon()
@@ -32,7 +31,7 @@ namespace Circustrein_V1
             animals.Add(animal);
         }
 
-        public bool CanAnimalFit(Animal animal)
+        private bool CanAnimalFit(Animal animal)
         {
             int totalSize = animals.Sum(a => (int)a.size);
             if (totalSize + (int)animal.size <= maxCapacity)
@@ -43,7 +42,7 @@ namespace Circustrein_V1
         }
 
 
-        public bool CanAnimalBehave(Animal animal)
+        private bool CanAnimalBehave(Animal animal)
         {
             for (int i = 0; i < animals.Count; i++)
             {
