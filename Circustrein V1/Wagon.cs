@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +12,13 @@ namespace Circustrein_V1
     {
         private int maxCapacity = 10;
         private List<Animal> animals;
+
         public Wagon()
         {
             animals = new List<Animal>();
         }
                     
-        public bool AddAnimal(Animal animal)
+        public bool AddAnimalIfPossibleOtherwiseFalse(Animal animal)
         {
             if (CanAnimalFit(animal) && CanAnimalBehave(animal))
             {
@@ -25,6 +27,7 @@ namespace Circustrein_V1
             }
             return false;
         }
+
 
         public void AddAnimalToList(Animal animal)
         {

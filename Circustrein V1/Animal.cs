@@ -8,6 +8,12 @@ namespace Circustrein_V1
 {
     internal class Animal
     {
+        public Animal(AnimalSize size, Diet diet)
+        {
+            this.size = size;
+            this.diet = diet;
+        }
+
         public AnimalSize size { get; set; }
         public Diet diet { get; set; }
 

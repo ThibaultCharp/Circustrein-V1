@@ -12,6 +12,7 @@ namespace Circustrein_V1
         Wagon wagon = new Wagon();
 
         private List<Wagon> wagons;
+
         private List<Animal> animals;
 
         public Train()
@@ -20,10 +21,12 @@ namespace Circustrein_V1
             animals = new List<Animal>();
         }
 
-        public void DistributeAnimals(Animal animal)
+        public void DistributeAnimal(Animal animal)
         {
             AddFirstWagon();
-            IsWagonNessesery(animal);
+            PutAnimalsInWagon(animal);
+            //IsWagonNessesery(animal);
+
         }
 
         private void AddFirstWagon()
@@ -36,18 +39,28 @@ namespace Circustrein_V1
 
         private bool IsWagonNessesery(Animal animal) 
         { 
-            if(wagon.AddAnimal(animal) == true)
+            if(wagon.AddAnimalIfPossibleOtherwiseFalse(animal) == true)
             {
                 return false;
             }
-
             wagons.Add(new Wagon());
             return true;
         }
 
-        public void PutAnimalsInWagon(Wagon wagon)
+        public void PutAnimalsInWagon(Animal animal)
         {
-            
+            for(int i = 0; i < wagons.Count; i++)
+            {
+                if (wagons[i].AddAnimalIfPossibleOtherwiseFalse(animal))
+                {
+                    return;
+                }
+                if (i == wagons.Count - 1)
+                {
+                    wagons.Add(new Wagon());
+                    wagons[i].AddAnimalIfPossibleOtherwiseFalse(animal);
+                }
+            }
         }
         
         public void ClearLists()
