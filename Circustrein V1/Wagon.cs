@@ -28,7 +28,6 @@ namespace Circustrein_V1
             return false;
         }
 
-
         public void AddAnimalToList(Animal animal)
         {
             animals.Add(animal);
@@ -44,7 +43,6 @@ namespace Circustrein_V1
             return false;
         }
 
-
         private bool CanAnimalBehave(Animal animal)
         {
             for (int i = 0; i < animals.Count; i++)
@@ -59,18 +57,23 @@ namespace Circustrein_V1
                     return false;
                 }
             }
-
             return true;
         }
-
 
         public List<Animal> GetAnimals()
         {
             return animals;
         }
 
-        public void SortAnimalsBigToSmall()
+        public void SortAnimalsBigToSmallDietImportant()
         {
+            animals.Sort((a1, a2) => a2.size.CompareTo(a1.size));
+            animals.Sort((b1, b2) => b2.diet.CompareTo(b1.diet));
+        }
+
+        public void SortAnimalsBigToSmallSizeImportant()
+        {
+            animals.Sort((b1, b2) => b2.diet.CompareTo(b1.diet));
             animals.Sort((a1, a2) => a2.size.CompareTo(a1.size));
         }
     }

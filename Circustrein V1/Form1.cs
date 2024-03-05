@@ -13,51 +13,20 @@ namespace Circustrein_V1
     
     public partial class Form1 : Form
     {
+
         Train train = new Train();
         Wagon wagon = new Wagon();
+
+        int WagonCount = 0;
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        void UpdateList()
-        {
-            List<Animal> list = wagon.GetAnimals();
-            listBoxAnimals.Items.Clear();
-            foreach (Animal animal in list)
-            {
-                listBoxAnimals.Items.Add(animal);
-            }
-        }
-
-        void DisplayDistribution()
-        {
-            List<Animal> AnimalList = wagon.GetAnimals();
-            foreach (Animal animal in AnimalList)
-            {
-                train.DistributeAnimal(animal);
-                //listBoxWagon.Items.Add(animal);
-            }
-
-            List<Wagon> WagonList = train.GetWagons();
-            listBoxWagon.Items.Clear();
-            foreach (Wagon wagon in WagonList)
-            {
-                listBoxWagon.Items.Add(wagon);
-            }
-        }
-
         private void buttonSH_Click(object sender, EventArgs e)
         {
-
             wagon.AddAnimalToList(new Animal(AnimalSize.Small, Diet.Herbivore));
-
             UpdateList();
         }
 
@@ -91,10 +60,50 @@ namespace Circustrein_V1
             UpdateList();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void listBoxWagon_SelectedIndexChanged(object sender, EventArgs e)
         {
-            wagon.SortAnimalsBigToSmall();
-            DisplayDistribution();
+            Wagon selectedWagon = listBoxWagon.SelectedItem as Wagon;
+            listBoxAnimalsInWagon.Items.Clear();
+            foreach (Animal animal in selectedWagon.GetAnimals())
+            {
+                listBoxAnimalsInWagon.Items.Add(animal);
+            }
+        }
+
+        void UpdateList()
+        {
+            List<Animal> list = wagon.GetAnimals();
+            listBoxAnimals.Items.Clear();
+            foreach (Animal animal in list)
+            {
+                listBoxAnimals.Items.Add(animal);
+            }
+        }
+
+
+        void Distribution()
+        {
+            List<Animal> AnimalList = wagon.GetAnimals();
+            foreach (Animal animal in AnimalList)
+            {
+                train.DistributeAnimal(animal);
+            }
+
+            List<Wagon> WagonList = train.GetWagons();
+            listBoxWagon.Items.Clear();
+            foreach (Wagon wagon in WagonList)
+            {
+                listBoxWagon.Items.Add(wagon);
+                WagonCount++;
+                lblWagonCount.Text = WagonCount.ToString();
+            }
+        }
+
+
+        private void buttonDistibute_Click(object sender, EventArgs e)
+        {
+            wagon.SortAnimalsBigToSmallDietImportant();
+            Distribution();
         }
     }
 }
