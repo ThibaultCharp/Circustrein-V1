@@ -11,7 +11,7 @@ namespace Circustrein_V1
     internal class Wagon
     {
         private int maxCapacity = 10;
-        private List<Animal> animals;
+        public List<Animal> animals;
 
         public Wagon()
         {
@@ -65,16 +65,6 @@ namespace Circustrein_V1
             return animals;
         }
 
-        public void SortAnimalsBigToSmallDietImportant()
-        {
-            animals.Sort((a1, a2) => a2.size.CompareTo(a1.size));
-            animals.Sort((b1, b2) => b2.diet.CompareTo(b1.diet));
-        }
-
-        public void SortAnimalsBigToSmallSizeImportant()
-        {
-            animals.Sort((b1, b2) => b2.diet.CompareTo(b1.diet));
-            animals.Sort((a1, a2) => a2.size.CompareTo(a1.size));
-        }
+        
     }
 }
