@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 namespace Circustrein_V1
 {
 
-    internal class Wagon
+    public class Wagon
     {
+        Animal animal = new Animal();
+
         private int maxCapacity = 10;
-        public List<Animal> animals;
+        private List<Animal> animals;
 
         public Wagon()
         {
@@ -20,17 +22,12 @@ namespace Circustrein_V1
                     
         public bool AddAnimalIfPossibleOtherwiseFalse(Animal animal)
         {
-            if (CanAnimalFit(animal) && CanAnimalBehave(animal))
+            if (CanAnimalFit(animal) && animal.CanAnimalBehave(animals, animal))
             {
                 animals.Add(animal);
                 return true;
             }
             return false;
-        }
-
-        public void AddAnimalToList(Animal animal)
-        {
-            animals.Add(animal);
         }
 
         private bool CanAnimalFit(Animal animal)
@@ -43,28 +40,10 @@ namespace Circustrein_V1
             return false;
         }
 
-        private bool CanAnimalBehave(Animal animal)
-        {
-            for (int i = 0; i < animals.Count; i++)
-            {
-                if (animals[i].diet == Diet.Carnivore && (int)animals[i].size >= (int)animal.size)
-                {
-                    return false;
-                }
-
-                if (animal.diet == Diet.Carnivore && animals[i].size <= animal.size)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
 
         public List<Animal> GetAnimals()
         {
             return animals;
-        }
-
-        
+        } 
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Circustrein_V1
 {
-    internal class Train
+    public class Train
     {
         
         private List<Wagon> wagons;

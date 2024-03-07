@@ -16,7 +16,6 @@ namespace Circustrein_V1
 
         Train train;
         SortingLogic sortingLogic = new SortingLogic();
-
         List<Animal> animals = new List<Animal>();      
 
         int WagonCount = 0;
@@ -92,52 +91,10 @@ namespace Circustrein_V1
             }
         }
 
-        //Train Distribution(Wagon wagonTest)
-        //{
-        //    Train train = new Train();
-        //    List<Animal> AnimalList = wagonTest.GetAnimals();
-        //    foreach (Animal animal in AnimalList)
-        //    {
-        //        train.DistributeAnimal(animal);
-        //    }
-        //    return train;
-        //}
-
-
         private void buttonDistibute_Click(object sender, EventArgs e)
         {
-            //{
-            //    Wagon wagonAsc = new Wagon();
-            //    Wagon wagonDesc = new Wagon();
-
-            //    wagonAsc.animals = wagon.GetAnimals();
-            //    wagonDesc.animals = wagon.GetAnimals();
-            //    wagonAsc.SortAnimalsSmallToBigDietImportant();
-            //    wagonDesc.SortAnimalsBigToSmallSizeImportant();
-
-            //    Train trainAsc = Distribution(wagonAsc);
-            //    Train trainDesc = Distribution(wagonDesc);
-
-            //    if (trainAsc.GetWagons().Count > trainDesc.GetWagons().Count)
-            //    {
-            //        List<Animal> AnimalList = wagonDesc.GetAnimals();
-            //        foreach (Animal animal in AnimalList)
-            //        {
-            //            train.DistributeAnimal(animal);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        List<Animal> AnimalList = wagonAsc.GetAnimals();
-            //        foreach (Animal animal in AnimalList)
-            //        {
-            //            train.DistributeAnimal(animal);
-            //        }
-            //    }
-            //}
             train = sortingLogic.SortAndDistribute(animals);
-            DisplayWagons();
-            
+            DisplayWagons();   
         }
     }
 }

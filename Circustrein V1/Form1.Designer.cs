@@ -41,7 +41,6 @@
             this.listBoxAnimalsInWagon = new System.Windows.Forms.ListBox();
             this.lblWagonCount = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.buttonClearLists = new System.Windows.Forms.Button();
             this.buttonDistibute = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -117,7 +116,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 28);
+            this.label1.Location = new System.Drawing.Point(13, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 25);
             this.label1.TabIndex = 7;
@@ -169,15 +168,6 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Animals in wagon";
             // 
-            // buttonClearLists
-            // 
-            this.buttonClearLists.Location = new System.Drawing.Point(18, 60);
-            this.buttonClearLists.Name = "buttonClearLists";
-            this.buttonClearLists.Size = new System.Drawing.Size(128, 45);
-            this.buttonClearLists.TabIndex = 14;
-            this.buttonClearLists.Text = "Clear";
-            this.buttonClearLists.UseVisualStyleBackColor = true;
-            // 
             // buttonDistibute
             // 
             this.buttonDistibute.Location = new System.Drawing.Point(221, 60);
@@ -194,7 +184,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1031, 450);
             this.Controls.Add(this.buttonDistibute);
-            this.Controls.Add(this.buttonClearLists);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblWagonCount);
             this.Controls.Add(this.listBoxAnimalsInWagon);
@@ -230,7 +219,6 @@
         private System.Windows.Forms.ListBox listBoxAnimalsInWagon;
         private System.Windows.Forms.Label lblWagonCount;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button buttonClearLists;
         private System.Windows.Forms.Button buttonDistibute;
     }
 }
